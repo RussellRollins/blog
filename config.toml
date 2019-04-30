@@ -1,4 +1,4 @@
-baseURL = "https://blog.russellrollins.com"
+baseURL = "https://russellrollins.com"
 title = "Russell Rollins"
 # for smart copyright line, leave this blank and check [params.copyright]
 copyright = ""
@@ -80,6 +80,12 @@ name = "HOME"
 weight = -10
 identifier = "home"
 url = "/"
+
+[[menu.main]]
+name = "ABOUT"
+weight = -10
+identifier = "about"
+url = "/about"
 
 [blackfriday]
 hrefTargetBlank = true

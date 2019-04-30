@@ -25,9 +25,6 @@ pushd "$DIR/.."
     rm Resume.aux
   popd
 
-  echo -e "\033[0;32mImporting the CNAME file...\033[0m"
-  cp script/CNAME public/CNAME
-
   pushd public
     git add .
     msg="rebuilding site `date`"
