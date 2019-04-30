@@ -20,7 +20,7 @@ pygmentsCodefences = true
 defaultContentLanguage = "en"
 
 [params.info]
-description = "Russell Rollins's Personal Blog"
+description = "Opinions are my own. And therefore infallible."
 title404 = "I live in the 404, but this isn't what you wanted."
 
 [params.assets]
