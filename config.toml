@@ -77,15 +77,15 @@ page = "/:slug/"
 
 [[menu.main]]
 name = "HOME"
-weight = -10
+weight = -1000
 identifier = "home"
 url = "/"
 
 [[menu.main]]
 name = "ABOUT"
-weight = -10
-identifier = "about"
-url = "/about"
+weight = 0
+identifier = "About"
+url = "/about/"
 
 [blackfriday]
 hrefTargetBlank = true
