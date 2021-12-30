@@ -1,2 +1,6 @@
 *.swp
 .DS_Store
+
+russellrollins/resources/_gen/**
+resume/Resume.log
+resume/Resume.aux
