@@ -1,7 +1,7 @@
-[submodule "public"]
-	path = public
-	url = git@github.com:russellrollins/russellrollins.github.io.git
-	branch = master
 [submodule "russellrollins/themes/hugo-theme-codex"]
 	path = russellrollins/themes/hugo-theme-codex
 	url = https://github.com/jakewies/hugo-theme-codex.git
+[submodule "russellrollins.github.io"]
+	path = russellrollins.github.io
+	url = git@github.com:russellrollins/russellrollins.github.io.git
+	branch = master
