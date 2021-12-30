@@ -1,7 +1,7 @@
-[submodule "themes/minimo"]
-	path = themes/minimo
-	url = https://github.com/MunifTanjim/minimo
 [submodule "public"]
 	path = public
 	url = git@github.com:russellrollins/russellrollins.github.io.git
 	branch = master
+[submodule "russellrollins/themes/hugo-theme-codex"]
+	path = russellrollins/themes/hugo-theme-codex
+	url = https://github.com/jakewies/hugo-theme-codex.git
