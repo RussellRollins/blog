@@ -18,12 +18,15 @@ cd "$DIR"
 
 echo -e "\033[0;32mLatex resume build...\033[0m"
 cd resume
-  pdflatex Resume --interaction errorstopmode
+  pdflatex Resume --interaction errorstopmode >/dev/null 2>&1
   mkdir -p "../russellrollins.github.io/assets"
   mv Resume.pdf ../russellrollins.github.io/assets/resume.pdf
   rm Resume.log
   rm Resume.aux
 cd "$DIR"
+
+echo -e "\033[0;32mHacking favicon...\033[0m"
+cp russellrollins/static/favicon.ico russellrollins.github.io/favicon.ico
 
 cd "russellrollins.github.io"
   git add .
