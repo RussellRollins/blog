@@ -28,12 +28,15 @@ cd "$DIR"
 echo -e "\033[0;32mHacking favicon...\033[0m"
 cp russellrollins/static/favicon.ico russellrollins.github.io/favicon.ico
 
+echo -e "\033[0;32mHacing CNAME...\033[0m"
+cp russellrollins/assets/CNAME russellrollins.github.io/CNAME
+
 cd "russellrollins.github.io"
   git add .
-  msg="rebuilding site `date`"
+  msg="rebuilding site $(date)"
   if [ $# -eq 1 ]; then
     msg="$1"
   fi
   git commit -m "$msg"
-  git push origin master --force
+  git push origin master
 cd  "$DIR"
