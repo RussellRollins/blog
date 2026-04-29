@@ -13,13 +13,17 @@
 \documentclass[]{rrollins-res}
 
 \usepackage[document]{ragged2e}
-\usepackage[left=0.75in, top=0.5in, right=0.75in, bottom=0.5in]{geometry} %set margins
+\usepackage[left=0.75in, top=0.35in, right=0.75in, bottom=0.35in]{geometry} %set margins
+\usepackage[hidelinks]{hyperref}
+
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 
 
 \name{Russell A. Rollins} % My Name
 \address{296 Eleanor St SE \\ Atlanta, GA 30317}
-        {p: (904)-304-0822 e: russell@russellrollins.com} %The two address lines
+        {p: (904)-304-0822 e: \href{mailto:russell@russellrollins.com}{russell@russellrollins.com} w: \href{https://russellrollins.com}{russellrollins.com}} %The two address lines
         {U.S. Citizen}
 
 \begin{document}
@@ -39,7 +43,13 @@
 {October 2021 -- Present}
 {\bodytext{\begin{itemize}
 
-\item Returned to Salesforce Pardot to help optimize deployments to Kubernetes, Heroku, EC2, and S3 targets 
+\item \textbf{Tech lead for Terraformer, Pardot's internal Terraform-as-a-Service platform (written in Go).} 25 infrastructure engineers use it to manage 20 Kubernetes clusters and 1,000 EC2 instances and it has been a core reason Pardot infrastructure runs with one of the lowest cost-to-serve profiles and lowest change-failure rates at Salesforce. On shared on-call for BREAD's services.
+
+\item \textbf{Designed and shipped Terraformer's plan-review UI}, turning mandatory plan review from a social convention into an enforced gate (load-bearing for SOC 2 audit after an unreviewed plan caused an incident).
+
+\item \textbf{Built multi-version support and per-VPC job dispatch.} Multi-version ended a years-long lock on Terraform 0.12 (current on every release since); per-VPC dispatch is a gRPC service that runs plans inside target VPCs instead of the shared control-plane VPC, reducing blast radius and putting firewall-isolated services like Consul and Vault under Terraform's management.
+
+\item \textbf{Led a cross-team migration of Docker base images from mutable to immutable tags}, closing a major compliance risk while auto-generated upgrade PRs kept upgrades painless for service teams.
 
 \end{itemize}
 
@@ -56,9 +66,11 @@
 {October 2018 -- September 2021}
 {\bodytext{\begin{itemize}
 
-\item As the Release Engineer embedded with the Terraform Enterprise team, improved and optimized build and release processes for Ruby application and suite of Go microservices
-\item Wrote Go for the custom Nomad deployer chatbot used for the Terraform Enterprise product in order to automate and simplify deploys
-\item Incorporated GitLab Omnibus container into local development environment, allowing developers to more easily stand up full Terraform Enterprise test environments
+\item \textbf{Release Engineer for Terraform Cloud, HashiCorp's hosted Terraform service.} TFC monetizes running customer Terraform code, which is both its value prop and its core operational problem: platform deploys were slow and manual, and customer-execution (effectively a webhook-to-RCE surface) ran on expensive ephemeral EC2 VMs.
+
+\item \textbf{Built a deployment manifest system tying CI into the deploy bot}, replacing a manual process where engineers copied UUIDs from CI logs into chat. Most deploys became fully automated; the rest dropped to a one-line chat command.
+
+\item \textbf{Designed and built a new customer execution platform for Terraform Cloud}: gVisor-isolated containers on Nomad, replacing per-customer ephemeral EC2 VMs. The new platform was cheaper to operate and scaled faster, and selling customers more CPU or memory became a Nomad config change rather than a per-customer EC2 buildout (all-but-impossible under the old model). gVisor's userland-syscall sandbox preserved the multi-tenant isolation that customer code execution requires.
 
 \end{itemize}
 
@@ -75,11 +87,7 @@
 {June 2016 -- October 2018}
 {\bodytext{\begin{itemize}
 
-\item Worked on Salesforce Pardot's Build Release Environments Automation Deployment (BREAD) Team creating and maintaining tools engineers use to enhance and improve their work
-\item Wrote Ruby in a Rails, Litabot, and vanilla gem context to support compliance and deployment tooling
-\item Wrote Go for chatops functionality and automated test results tracking
-\item Administered and interacted with a variety of tools to support BREAD work including Artifactory, GitHub Enterprise, Heroku, and AWS
-\item Used Terraform and Chef to write and alter Infrastructure as Code
+\item \textbf{DevOps engineer on Pardot's BREAD team, the internal tooling group that scaffolded the company's lift-and-shift from Salesforce data centers to AWS.} Wrote most of the original Terraformer codebase (shared state, locking, secrets) to onboard the Pardot Infrastructure team to Terraform.
 
 \end{itemize}
 
@@ -90,8 +98,7 @@
 {June 2015 -- June 2016}
 {\bodytext{\begin{itemize}
 
-\item Wrote Automation Rules for matching millions of Prospects in both legacy PHP application and new Kafka/Storm Java stack 
-\item Wrote Ember.js code utilizing Promises for UI interaction in the Folders application, Pardot's solution for asset organization
+\item \textbf{Application engineer on Pardot's Engagement Studio, the customer-facing system that powered drip campaigns to millions of prospects.} Wrote Automation Rules across the legacy PHP application and the new Kafka/Storm Java stack.
 
 \end{itemize}
 
@@ -100,58 +107,20 @@
 }
 
 \headedsection
-{BAE Systems}
-{San Diego, CA} {
+{Internships during Computer Engineering studies}
+{\emph{2012 -- 2014}} {
 
-\headedsubsection
-{Engineering Intern}
-{June 2014 -- August 2014}
-{\bodytext{\begin{itemize}
+\bodytext{\begin{itemize}
 
-\item Assisted with development of Automatic Test Equipment software for F-16 Aircraft
-\item Helped implement IEEE standard for test output, improving customer experience and enabling internal data collection
-\item Finished BAE Intelligence and Security Web Attack and Defense Class
+\item \textbf{BAE Systems} (San Diego, CA), Jun -- Aug 2014: automatic test equipment software for F-16 aircraft.
+
+\item \textbf{Umenta} (Atlanta, GA), Jan -- Aug 2013: PHP/JavaScript at a CMS startup, alongside classes.
+
+\item \textbf{Georgia Tech Research Institute} (Atlanta, GA), May -- Dec 2012: C\# desktop and Sencha Touch mobile development on Chemical Companion, an emergency-response field tool.
 
 \end{itemize}
-
-}}
 
 }
-
-
-\headedsection
-{Umenta}
-{Atlanta, GA} {
-
-\headedsubsection
-{Development Intern}
-{January 2013 -- August 2013}
-{\bodytext{\begin{itemize}
-
-\item Maintained 50,000 lines of PHP and JavaScript code for storytelling startup company
-\item Developed new features for email opt-out, photo albums, and content management
-
-\end{itemize}
-
-}}
-
-}
-
-\headedsection
-{Georgia Tech Research Institute}
-{Atlanta, GA} {
-
-\headedsubsection
-{Student Assistant}
-{May 2012 -- December 2012}
-{\bodytext{\begin{itemize}
-
-\item Wrote C\# code for desktop and Sencha Touch JavaScript code for mobile development of Chemical Companion, a tool for private and government emergency first response teams
-\item Created automated tests that simulated inputs and plotted outputs of an empirically generated respirator degradation model
-
-\end{itemize}
-
-}}
 
 }
 
@@ -159,7 +128,7 @@
 %       Education
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\roottitle{EDUCATION HISTORY}
+\roottitle{EDUCATION}
 
 \headedsection
 {The Georgia Institute of Technology}
