@@ -10,9 +10,20 @@ cd "$DIR"
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
+# Ensure submodules are populated
+git submodule update --init --recursive
+
+# Make sure publish target is on master and current with remote
+cd "${DIR}/russellrollins.github.io"
+  git checkout master
+  git pull --ff-only origin master
+cd "$DIR"
+
 echo -e "\033[0;32mHugo build...\033[0m"
+# Clear submodule working tree, preserving .git pointer (Hugo's --cleanDestinationDir would wipe .git too)
+find "${DIR}/russellrollins.github.io" -mindepth 1 -maxdepth 1 -not -name '.git' -exec rm -rf {} +
 cd russellrollins
-  hugo --destination="${DIR}/russellrollins.github.io" --cleanDestinationDir
+  hugo --destination="${DIR}/russellrollins.github.io"
 cd "$DIR"
 
 
@@ -28,7 +39,7 @@ cd "$DIR"
 echo -e "\033[0;32mHacking favicon...\033[0m"
 cp russellrollins/static/favicon.ico russellrollins.github.io/favicon.ico
 
-echo -e "\033[0;32mHacing CNAME...\033[0m"
+echo -e "\033[0;32mHacking CNAME...\033[0m"
 cp russellrollins/assets/CNAME russellrollins.github.io/CNAME
 
 cd "russellrollins.github.io"
